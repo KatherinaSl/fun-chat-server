@@ -20,7 +20,7 @@ module.exports = class Logger {
    * @param {LogConnection} message
    */
   connection(message) {
-    if (!process.env.LOG || process.env.LOG.toLowerCase() === 'none') {
+    if (process.env.LOG.toLowerCase() === 'none') {
       return;
     }
     const type = message.type === 'error' ? chalk.red(message.type) : chalk.blue(message.type);
